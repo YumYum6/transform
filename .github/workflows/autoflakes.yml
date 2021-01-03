@@ -1,0 +1,19 @@
+name: Chris Abbott issues and pull requests
+
+on:
+  schedule:
+  - cron: "30 1 * * *"
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/flakes@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        flakes-issue-message: 'flakes issue message'
+        flakes-pr-message: 'flakes pull request message'
+        flakes-issue-label: 'no-issue-activity'
+        flakes-pr-label: 'no-pr-activity'
